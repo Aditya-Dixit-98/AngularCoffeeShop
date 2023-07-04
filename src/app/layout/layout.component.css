@@ -1,0 +1,12 @@
+
+mat-card-header {
+    width:90%;
+}
+mat-card{
+    width:80%;
+    height:70%;
+    background: #fffde7;
+}
+mat-grid-list{
+    background: #424242;
+}

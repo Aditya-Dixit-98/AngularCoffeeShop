@@ -1,0 +1,18 @@
+<mat-grid-list [cols]="cols" rowHeight="250px" >
+        <mat-grid-tile  *ngFor="let coffee of coffee$ | async | slice:startpageItemIndex:endpageItemIndex ">
+        <mat-card>
+            <mat-card-header>
+              <mat-card-title-group>
+                <mat-card-title>{{coffee.blend_name}}</mat-card-title>
+                <mat-card-subtitle>{{coffee.origin}}</mat-card-subtitle>
+                <img mat-card-sm-image src="https://img.freepik.com/free-vector/coffee-love-foam-with-beans-cartoon-icon-illustration_138676-2575.jpg?w=2000" >
+              </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+</mat-grid-list>
+<mat-paginator [length]="(coffee$ | async)?.length" pageSize="10" (page)="handlePageEvent($event)">
+
+</mat-paginator>
