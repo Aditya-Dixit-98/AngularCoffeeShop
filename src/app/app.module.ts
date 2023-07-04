@@ -12,6 +12,7 @@ import { CoffeeEffect } from './coffeeShop/store/effects/coffee.effect';
 import { CommonModule } from '@angular/common';
 import { LayoutModule } from './layout/layout.module';
 import { LayoutComponent } from './layout/layout.component';
+import { AppBarComponent } from './app-bar/app-bar.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { LayoutComponent } from './layout/layout.component';
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     LayoutModule,
     LayoutComponent,
+    AppBarComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
