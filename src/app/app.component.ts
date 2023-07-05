@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { selectCoffee } from './coffeeShop/store/selector/coffee.selector';
-import { invokeCoffeeAPI } from './coffeeShop/store/actions/coffee.action';
+import { selectCoffee } from './data/store/selector/coffee.selector';
+import { invokeCoffeeAPI } from './data/store/actions/coffee.action';
 
 @Component({
   selector: 'app-root',

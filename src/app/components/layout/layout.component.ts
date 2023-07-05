@@ -1,14 +1,14 @@
 import { Component, OnInit} from '@angular/core';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { Store, select } from '@ngrx/store';
-import { selectCoffee } from '../coffeeShop/store/selector/coffee.selector';
+import { selectCoffee } from '../../data/store/selector/coffee.selector';
 import { AsyncPipe, JsonPipe, NgFor,SlicePipe } from '@angular/common';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import {MatCardModule} from '@angular/material/card';
 import {PageEvent, MatPaginatorModule} from '@angular/material/paginator';
 import { map, take, toArray } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Coffee } from '../coffeeShop/models/coffee';
+import { Coffee } from '../../data/models/coffee';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',

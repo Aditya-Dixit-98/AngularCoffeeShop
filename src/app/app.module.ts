@@ -7,12 +7,12 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
-import { coffeeReducer } from './coffeeShop/store/reducers/coffee.reducer';
-import { CoffeeEffect } from './coffeeShop/store/effects/coffee.effect';
+import { coffeeReducer } from './data/store/reducers/coffee.reducer';
+import { CoffeeEffect } from './data/store/effects/coffee.effect';
 import { CommonModule } from '@angular/common';
-import { LayoutModule } from './layout/layout.module';
-import { LayoutComponent } from './layout/layout.component';
-import { AppBarComponent } from './app-bar/app-bar.component';
+import { LayoutModule } from './components/layout/layout.module';
+import { LayoutComponent } from './components/layout/layout.component';
+import { AppBarComponent } from './components/app-bar/app-bar.component';
 
 @NgModule({
   declarations: [
