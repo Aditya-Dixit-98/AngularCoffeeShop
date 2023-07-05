@@ -14,8 +14,6 @@ export class AppComponent implements OnInit {
   title = 'CoffeeShop';
   coffee$ = this.store.pipe(select(selectCoffee))
   ngOnInit(): void {
-    for(let i = 0; i<this.product_quantity; i++){
       this.store.dispatch(invokeCoffeeAPI());
-    }
   }
 }

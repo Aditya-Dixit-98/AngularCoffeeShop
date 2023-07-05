@@ -3,11 +3,12 @@ import { Coffee } from '../../models/coffee';
 import { coffeeFetchAPISuccess } from '../actions/coffee.action';
 
  
-export const initialState: Readonly<Coffee[]> = []
+export const initialState: ReadonlyArray<Coffee> = []
 
 export const coffeeReducer = createReducer(
     initialState,
-    on(coffeeFetchAPISuccess, (initialState , {coffee}) => {
-        return [...initialState,coffee];
+    on(coffeeFetchAPISuccess, (state, { coffee }) => {
+        console.log(coffee)
+        return coffee;
     })
 );

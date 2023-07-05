@@ -7,5 +7,5 @@ export const invokeCoffeeAPI = createAction(
 
 export const coffeeFetchAPISuccess = createAction (
     '[Coffee API] Fetch API Success',
-    props<{ coffee: Coffee }>()
+    props<{ coffee: Coffee[] }>()
 )

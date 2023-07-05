@@ -1,28 +1,29 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, Inject, OnInit} from '@angular/core';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { Store, select } from '@ngrx/store';
 import { selectCoffee } from '../../data/store/selector/coffee.selector';
 import { AsyncPipe, JsonPipe, NgFor,SlicePipe } from '@angular/common';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import {MatCardModule} from '@angular/material/card';
+import {MatCard, MatCardModule} from '@angular/material/card';
 import {PageEvent, MatPaginatorModule} from '@angular/material/paginator';
-import { map, take, toArray } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Coffee } from '../../data/models/coffee';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogModule} from '@angular/material/dialog';
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css'],
   standalone: true,
-  imports: [MatGridListModule,MatCardModule, NgFor, AsyncPipe, MatPaginatorModule, JsonPipe, SlicePipe],
+  imports: [MatGridListModule,MatCardModule, NgFor, AsyncPipe, MatPaginatorModule, JsonPipe, SlicePipe,  MatDialogModule],
 })
 export class LayoutComponent {
   cols: number = 2
   startpageItemIndex: number = 0
   endpageItemIndex: number = 10
-  sliced$ = Observable<Coffee[]>
+  coffee$ = this.store.pipe(select(selectCoffee),map(value => value))
+
   constructor (private store: Store,
-    private breakpointObserver: BreakpointObserver){
+    private breakpointObserver: BreakpointObserver, public dialog: MatDialog){
       this.breakpointObserver.observe([
         Breakpoints.XSmall,
         Breakpoints.Small,
@@ -45,5 +46,21 @@ export class LayoutComponent {
       this.endpageItemIndex = (e.pageIndex+1) *10
 
     }
-  coffee$ = this.store.pipe(select(selectCoffee),map(value => value))
+  openDialog(data: Coffee) {
+    this.dialog.open(DataDialogComponent,{
+      data
+    });
+}
+}
+
+@Component({
+  selector: 'app-data-dialog',
+  templateUrl: './data-dialog.component.html',
+  styleUrls: ['./data-dialog.component.css'],
+  standalone: true,
+  imports: [MatCardModule],
+})
+export class DataDialogComponent{
+  constructor(@Inject(MAT_DIALOG_DATA) public data: Coffee) {
+  }
 }
