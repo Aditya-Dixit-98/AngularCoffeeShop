@@ -41,11 +41,28 @@ export class LayoutComponent {
         }
       })
     }
+  /*
+   *Summary: Function takes PageEvent as an argument from navigator
+   *Params: PageEvent(Event)(
+    {
+      length: number
+      pageIndex: number
+      pageSize: number
+      previousPageIndex: number
+    }
+   )
+   *Returns: void
+  */
     handlePageEvent(e: PageEvent) {
       this.startpageItemIndex = e.pageIndex > 0 ? (e.pageIndex*10): e.pageIndex;
       this.endpageItemIndex = (e.pageIndex+1) *10
 
     }
+  /*
+   *Summary: Function takes single Coffee data and injects it in to the DataDialogComponent
+   *Params: data(Coffee)
+   *Returns: void
+  */
   openDialog(data: Coffee) {
     this.dialog.open(DataDialogComponent,{
       data
@@ -53,6 +70,8 @@ export class LayoutComponent {
 }
 }
 
+
+// Dialog Component Declaration
 @Component({
   selector: 'app-data-dialog',
   templateUrl: './data-dialog.component.html',
