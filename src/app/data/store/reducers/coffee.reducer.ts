@@ -8,7 +8,6 @@ export const initialState: ReadonlyArray<Coffee> = []
 export const coffeeReducer = createReducer(
     initialState,
     on(coffeeFetchAPISuccess, (state, { coffee }) => {
-        console.log(coffee)
         return coffee;
     })
 );
