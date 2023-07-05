@@ -19,7 +19,7 @@ export class CoffeeEffect {
             withLatestFrom(this.store.pipe(select(selectCoffee))),
             mergeMap(([,coffeeFromStore]) => {
                 console.log("Inside")
-                if(coffeeFromStore.length > 50){
+                if(coffeeFromStore.length > 0){
                     return EMPTY;
                 }
                 return this.coffeeService
