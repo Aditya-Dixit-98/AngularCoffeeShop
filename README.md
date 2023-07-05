@@ -2,7 +2,7 @@
 This project contains a list of coffee products and their details page you can click on the coffee card to view the details.
 ___
 
-#### Project Deployment URL: `https://angularcoffeeshop.web.app`
+#### Project Deployment URL: https://angularcoffeeshop.web.app
 
 ____
 #### Angular Version - `16.1.3.`
